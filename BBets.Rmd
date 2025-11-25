@@ -55,6 +55,22 @@ print(SBrLwarray[975])
 The function will be given a class_size by number of students, odds, and Number_of_times brownlow made the bet.  It will give you back how much Brownlows earnings were. We will use it to answer our three questions below. If you can, improve this function by giving default values to some of its inputs. 
 
 # In the class and payoff as described  If you highered 40 brownlow substitute teachers to do the same thing that Brownlow did then.
+
+```{r}
+subTeachers <- numeric(40)
+for(i in 1:40){
+subTeachers[i] <- BrLw(numClass = 35,
+odds = 2,
+countoDo = 637)
+}
+mean(subTeachers)
+sd(subTeachers)
+95
+mean(subTeachers) - 1.96 * sd(subTeachers)/sqrt(40)
+mean(subTeachers) + 1.96 * sd(subTeachers)/sqrt(40)
+```
+
+
 ## what is their average earnings
 ## the standard deviation and a 95% confidence interval for their earnings?
   
