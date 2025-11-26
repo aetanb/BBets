@@ -50,6 +50,19 @@ print(SBrLwarray[975])
 ```
  
 
+```{r}
+classSizes <- 10:60
+EVsize <- numeric(length(classSizes))
+for(i in seq_along(classSizes)){
+EVsize[i] <- mean(replicate(1000,
+BrLw(numClass = classSizes[i],
+odds = 2,
+countoDo = 1)))
+}
+fairSizeTable <- data.frame(classSize = classSizes, EV = EVsize)
+
+fairSizeTable[which.min(abs(fairSizeTable$EV)), ]
+```
  
 
 
