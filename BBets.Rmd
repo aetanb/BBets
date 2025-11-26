@@ -49,6 +49,20 @@ print(SBrLwarray[25])
 print(SBrLwarray[975])
 ```
  
+```{r}
+classSizes <- 10:60
+EVsize <- numeric(length(classSizes))
+for(i in seq_along(classSizes)){
+EVsize[i] <- mean(replicate(1000,
+BrLw(numClass = classSizes[i],
+odds = 2,
+countoDo = 1)))
+}
+fairSizeTable <- data.frame(classSize = classSizes, EV = EVsize)
+
+fairSizeTable[which.min(abs(fairSizeTable$EV)), ]
+```
+ 
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
@@ -72,6 +86,7 @@ mean(subTeachers) + 1.96 * sd(subTeachers)/sqrt(40)
 
 
 ## what is their average earnings
+
 ## the standard deviation and a 95% confidence interval for their earnings?
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
