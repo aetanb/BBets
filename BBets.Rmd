@@ -64,6 +64,18 @@ fairSizeTable <- data.frame(classSize = classSizes, EV = EVsize)
 fairSizeTable[which.min(abs(fairSizeTable$EV)), ]
 ```
  
+```{r}
+oddsList <- seq(1, 6, by = 0.1)
+EV <- numeric(length(oddsList))
+for(i in seq_along(oddsList)){
+EV[i] <- mean(replicate(1000, BrLw(numClass = 35,
+odds = oddsList[i],
+countoDo = 1)))
+}
+fairOddsTable <- data.frame(odds = oddsList, EV = EV)
+
+fairOddsTable[which.min(abs(fairOddsTable$EV)), ]
+```
 
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
